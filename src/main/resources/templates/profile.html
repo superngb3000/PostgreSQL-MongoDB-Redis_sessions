@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Личный кабинет</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <div>
+            <a href="/">Главная</a><br>
+            <a href="/shop">Товары</a><br>
+            <a href="/logout">Выйти</a>
+        </div>
+        <div class="dashboard_rules" sec:authorize="hasRole('ADMIN')">
+            <a href="/admin">Кабинет администратора</a>
+        </div>
+        <a th:text="'Имя пользователя: '+${username}"></a><br>
+        <a th:text="'Почта: '+${email}"></a><br>
+    </div>
+</body>
+</html>
